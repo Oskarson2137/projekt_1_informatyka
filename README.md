@@ -60,7 +60,7 @@ Koniec programu
 Takie same komunikaty pojawią się także w momencie kiedy użytkownik nie poda, którejś z tych wartości przy wywoływaniu za pomocą flag.
 
 ```sh
-skrypt.py -p plik_dane_XYZ2BLH.txt -t xyz2blh
+program.py -p plik_dane_XYZ2BLH.txt -t xyz2blh
 Podaj nazwe elipsoidy:
 ```
 
