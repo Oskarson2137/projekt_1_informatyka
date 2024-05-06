@@ -147,7 +147,7 @@ Pierwsza wartość to szerokość geodezyjna[stopnie], druga to długość geode
 
 W pierwszym wierszu znajdują się kolejno współrzędne X[m], Y[m], Z[m] odbiornika na Ziemi. Natomiast w pozostałych wierszach pierwsza wartość to współrzędna X satelity[m], druga to współrzędna Y satelity[m], a trzecia to współrzędna Z satelity[m].
 
-- plik_wynikowy_XYz2NEUP_wgs84.txt
+- plik_wynikowy_XYZ2NEUP_wgs84.txt
 
 >-20542718.513 5778193.182 9734820.144\
 >19316702.984 -1656206.901 -24295657.230\
