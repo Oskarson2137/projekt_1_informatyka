@@ -2,63 +2,65 @@ import numpy as np
 from argparse import ArgumentParser
 
 class Transformation:
-   def __init__(self,elip):
-     """
-     Funkcja definiuje parametry elipsoidy obrotowej.
-
-        Parameters
-        ----------
-       
-        elip : [list] lista parametrów elipsoidy obrotowej, w kolejnosci: a, e^2
-               jednostka: [m] 
-
-        Returns
-        -------
-        None.
-
+    
+    def __init__(self,elip):
         """
-      self.a = elip[0]
-     self.e2 = elip[1]
+    Funkcja definiuje parametry elipsoidy obrotowej.
 
-   def Npu(self,fi):
-    """
-     Funkcja liczy parametr N dla podanej szerokosci geodezyjnej na danej elipsoidzie.
+       Parameters
+       ----------
+      
+       elip : [list] lista parametrów elipsoidy obrotowej, w kolejnosci: a, e^2
+              jednostka: [m] 
 
-        Parameters
-        ----------
-        fi : [float] szerokosć geodezyjna punktu dla którego chcemy obliczyć N
-             Jednostka: [rad]
-                    
+       Returns
+       -------
+       None.
 
-        Returns
-        -------
-        N : [float] promień przekroju krzywizny elipsoidy w 1-szym wertykale
-            jedn: [m]
-
-        """
-    N = self.a / np.sqrt(1 - self.e2 * np.sin(fi)**2)
-         return N
-
-    def hirvonen(self,X,Y,Z):
        """
-        Funkcja przelicza współrzędne geocentryczne XYZ na współrzędne geodezyjne krzywoliniowe,
-        realizując algorytm Hirvonena.
-
-        Parameters
-        ----------
-        X : [float] współrzędna geocentryzna X danego punktu
-            jedn: [m]
-        Y : [float] współrzędna geocentryczna Y danego punktu
-            jednostka: [m]
-        Z : [float] współrzędna geocentryczna Z danego punktu
-            jednostka: [m]
-
-        Returns
-        -------
-        wyniki : [list] lista współrzędnych geodezyjnych danego punktu, w kolejnosci: phi, lambda, h.
-                 jednostka: phi, lambda [st_dziesiętne], h [m]
-
+        self.a = elip[0]
+        self.e2 = elip[1]
+        
+    def Npu(self,fi):
         """
+      Funkcja liczy parametr N dla podanej szerokosci geodezyjnej na danej elipsoidzie.
+
+         Parameters
+         ----------
+         fi : [float] szerokosć geodezyjna punktu dla którego chcemy obliczyć N
+              Jednostka: [rad]
+                     
+
+         Returns
+         -------
+         N : [float] promień przekroju krzywizny elipsoidy w 1-szym wertykale
+             jedn: [m]
+
+         """
+        N = self.a / np.sqrt(1 - self.e2 * np.sin(fi)**2)
+        
+        return N
+    
+    def hirvonen(self,X,Y,Z):
+        """
+         Funkcja przelicza współrzędne geocentryczne XYZ na współrzędne geodezyjne krzywoliniowe,
+         realizując algorytm Hirvonena.
+
+         Parameters
+         ----------
+         X : [float] współrzędna geocentryzna X danego punktu
+             jedn: [m]
+         Y : [float] współrzędna geocentryczna Y danego punktu
+             jednostka: [m]
+         Z : [float] współrzędna geocentryczna Z danego punktu
+             jednostka: [m]
+
+         Returns
+         -------
+         wyniki : [list] lista współrzędnych geodezyjnych danego punktu, w kolejnosci: phi, lambda, h.
+                  jednostka: phi, lambda [st_dziesiętne], h [m]
+
+         """
         wyniki = []
         for X, Y, Z in zip(X, Y, Z):
             p = np.sqrt(X**2+Y**2)
@@ -78,26 +80,26 @@ class Transformation:
         return wyniki
 
     def hirvonen_odw(self,fi,lam,h):
-       """
-        Funkcja przelicza współrzędne geodezyjne krzywoliniowe danego punktu na 
-        współrzędne geocentryczne X, Y, Z.
-
-        Parameters
-        ----------
-        fi : [float] szerokosć geodezyjna danego punktu
-             jednostka: [rad]
-        lam : [float] długosć geodezyjna danego punktu
-              jednostka: [rad]
-        h : [float] wysokosć danego punktu nad przyjętą elipsoidą
-            jednostka: [m]
-
-        Returns
-        -------
-        wyniki : [list] lista współrzędnych geocentrycznych danego punktu
-                 w kolejnosci: X, Y, Z.
-                 jednostka: [m]
-
         """
+         Funkcja przelicza współrzędne geodezyjne krzywoliniowe danego punktu na 
+         współrzędne geocentryczne X, Y, Z.
+
+         Parameters
+         ----------
+         fi : [float] szerokosć geodezyjna danego punktu
+              jednostka: [rad]
+         lam : [float] długosć geodezyjna danego punktu
+               jednostka: [rad]
+         h : [float] wysokosć danego punktu nad przyjętą elipsoidą
+             jednostka: [m]
+
+         Returns
+         -------
+         wyniki : [list] lista współrzędnych geocentrycznych danego punktu
+                  w kolejnosci: X, Y, Z.
+                  jednostka: [m]
+
+         """
         wyniki = []
         #fi = radians(fi)
         #lam = radians(lam)
@@ -109,28 +111,29 @@ class Transformation:
             wyniki.append([Xk,Yk,Zk])
             
         return wyniki
-
+    
+    
     def pl1992(self,fi,lama,m=0.9993):
-       """
-       Funkcja przelicza podane współrzędne geodezyjne krzywoliniowe na współrzędne X, Y na 
-        płaszczyźnie Gaussa-Kruggera, a następnie na współrzędne w układzie 
-        PL 1992.
-
-        Parameters
-        ----------
-        fi : [float] szerokosć geodezyjna danego punktu
-             jednostka: [rad]
-        lama : [float] długosć geodezyjna danego punktu
-              jednostka: [rad]
-        m : [float] skala zniekształceń układu PL 1992
-            jednostka: brak
-
-        Returns
-        -------
-        wyniki : [list] lista współrzędnych w układzie PL 1992, w kolejnosci: X92, Y92
-                 jednostka: [m]
-
         """
+        Funkcja przelicza podane współrzędne geodezyjne krzywoliniowe na współrzędne X, Y na 
+         płaszczyźnie Gaussa-Kruggera, a następnie na współrzędne w układzie 
+         PL 1992.
+
+         Parameters
+         ----------
+         fi : [float] szerokosć geodezyjna danego punktu
+              jednostka: [rad]
+         lama : [float] długosć geodezyjna danego punktu
+               jednostka: [rad]
+         m : [float] skala zniekształceń układu PL 1992
+             jednostka: brak
+
+         Returns
+         -------
+         wyniki : [list] lista współrzędnych w układzie PL 1992, w kolejnosci: X92, Y92
+                  jednostka: [m]
+
+         """
         lama0 = np.deg2rad(19)
         wyniki = []
         for fi, lama in zip (fi,lama):   
@@ -154,28 +157,30 @@ class Transformation:
             y92 = ygk*m + 500000
             wyniki.append([x92,y92])
 
+        return  wyniki
+
     def pl2000(self,fi,lama,m=0.999923):
-       """
-        Funkcja przelicza podane współrzędne geodezyjne krzywoliniowe na współrzędne X, Y na 
-        płaszczyźnie Gaussa-Kruggera, a następnie na współrzędne w układzie 
-        PL 2000.
-
-        Parameters
-        ----------
-        fi : [float] szerokosć geodezyjna danego punktu
-             jednostka: [rad]
-        lama : [float] długosć geodezyjna danego punktu
-              jednostka: [rad]
-        m : TYPE, optional
-            Skala zniekształceń układu PL 2000, wartosć wynosi 0.999923.
-            jednostka: brak
-
-        Returns
-        -------
-        wyniki : [list] lista współrzędnych w układzie PL 2000, w kolejnosci: X2000, Y2000
-                 jednostka: [m]
-
         """
+         Funkcja przelicza podane współrzędne geodezyjne krzywoliniowe na współrzędne X, Y na 
+         płaszczyźnie Gaussa-Kruggera, a następnie na współrzędne w układzie 
+         PL 2000.
+
+         Parameters
+         ----------
+         fi : [float] szerokosć geodezyjna danego punktu
+              jednostka: [rad]
+         lama : [float] długosć geodezyjna danego punktu
+               jednostka: [rad]
+         m : TYPE, optional
+             Skala zniekształceń układu PL 2000, wartosć wynosi 0.999923.
+             jednostka: brak
+
+         Returns
+         -------
+         wyniki : [list] lista współrzędnych w układzie PL 2000, w kolejnosci: X2000, Y2000
+                  jednostka: [m]
+
+         """
         wyniki = []
         for fi, lama in zip (fi,lama):
             lama0 = 0
@@ -215,57 +220,57 @@ class Transformation:
             wyniki.append([x2000,y2000])
             
         return  wyniki
-
-     def Rneu(self, phi, lam):
+    
+    def Rneu(self, phi, lam):
         """
-         Funkcja definiuje macierz obrotu układu NEU dla podanej elipsoidy, szerokosci i długosci geodezyjnej
+          Funkcja definiuje macierz obrotu układu NEU dla podanej elipsoidy, szerokosci i długosci geodezyjnej
 
-        Parameters
-        ----------
-        phi : [float] szerokosć geodezyjna danego punktu
-             jednostka: [rad]
-        lam : [float] długosć geodezyjna danego punktu
-             jednostka: [rad]
+         Parameters
+         ----------
+         phi : [float] szerokosć geodezyjna danego punktu
+              jednostka: [rad]
+         lam : [float] długosć geodezyjna danego punktu
+              jednostka: [rad]
 
-        Returns
-        -------
-        Rneu : [array] macierz obrotu układu NEU
-               jednostka: brak 
+         Returns
+         -------
+         Rneu : [array] macierz obrotu układu NEU
+                jednostka: brak 
 
-        """
-           Rneu = np.array([[-np.sin(phi)*np.cos(lam), -np.sin(lam), np.cos(phi)*np.cos(lam)],
+         """
+        Rneu = np.array([[-np.sin(phi)*np.cos(lam), -np.sin(lam), np.cos(phi)*np.cos(lam)],
                          [-np.sin(phi)*np.sin(lam), np.cos(lam), np.cos(phi)*np.sin(lam)],
                          [np.cos(phi), 0, np.sin(phi)]])
         
         return Rneu
-
-      def xyz2neup(self, X, Y, Z, X0, Y0, Z0):
-         """
-          Funkcja przelicza współrzędne geocentryczne XYZ punktu na współrzędne topocentryczne 
-        w układzie NEU ze srodkiem w punkcie, w którym znajduje się nadajnik o współrzędnych X0, Y0, Z0.
-
-        Parameters
-        ----------
-        X : [float] współrzędna geocentryczna X punktu 
-            jednostka: [m]
-        Y : [float] współrzędna geocentryczna Y punktu 
-            jednostka: [m]
-        Z : [float] współrzędna geocentryczna Z punktu 
-            jednostka: [m]
-        X0 : [float] współrzędna geocentryczna X nadajnika 
-            jednostka: [m]
-        Y0 : [float] współrzędna geocentryczna Y nadajnika 
-            jednostka: [m]
-        Z0 : [float] współrzędna geocentryczna Y nadajnika 
-            jednostka: [m]
-
-        Returns
-        -------
-        wyniki : [list] lista współrzędnych punktow układzie topocentrycznym NEU
-                 ze srodkiem w miejscu położenia nadajnika.
-
+    
+    def xyz2neup(self, X, Y, Z, X0, Y0, Z0):
         """
-         wyniki = []
+           Funkcja przelicza współrzędne geocentryczne XYZ punktu na współrzędne topocentryczne 
+         w układzie NEU ze srodkiem w punkcie, w którym znajduje się nadajnik o współrzędnych X0, Y0, Z0.
+
+         Parameters
+         ----------
+         X : [float] współrzędna geocentryczna X punktu 
+             jednostka: [m]
+         Y : [float] współrzędna geocentryczna Y punktu 
+             jednostka: [m]
+         Z : [float] współrzędna geocentryczna Z punktu 
+             jednostka: [m]
+         X0 : [float] współrzędna geocentryczna X nadajnika 
+             jednostka: [m]
+         Y0 : [float] współrzędna geocentryczna Y nadajnika 
+             jednostka: [m]
+         Z0 : [float] współrzędna geocentryczna Y nadajnika 
+             jednostka: [m]
+
+         Returns
+         -------
+         wyniki : [list] lista współrzędnych punktow układzie topocentrycznym NEU
+                  ze srodkiem w miejscu położenia nadajnika.
+
+         """
+        wyniki = []
         p = np.sqrt(X0**2+Y0**2)
         fi = np.arctan(Z0/(p*(1-self.e2)))
         while True:
@@ -286,24 +291,24 @@ class Transformation:
             wyniki.append(X_rneu.T)
             
         return wyniki
-
+    
     def odczyt(self,plik_wsadowy, transformacja):
-       """
-        Funkcja przeprowadza na danych z pliku wejsciowego wybraną transformację, następnie
-        tworzy nowy plik z wynikami transformacji o nazwie: 'plik_wynikowy_(nazwa_transformacji)_(args.el).txt'
-
-        Parameters
-        ----------
-        plik_wsadowy : [.txt file] plik z danymi do obliczeń
-            
-        transformacja : [str] zmienna tekstowa, definiująca jaką transformację program przeprowadzi na danych 
-        z pliku wejsciowego. Do wyboru: 'XYZ2BLH' ; 'BLH2XYZ' ; 'PL2000' ; 'PL1992' ; 'XYZ2NEUP'
-
-        Returns
-        -------
-        None.
-
         """
+         Funkcja przeprowadza na danych z pliku wejsciowego wybraną transformację, następnie
+         tworzy nowy plik z wynikami transformacji o nazwie: 'plik_wynikowy_(nazwa_transformacji)_(args.el).txt'
+
+         Parameters
+         ----------
+         plik_wsadowy : [.txt file] plik z danymi do obliczeń
+             
+         transformacja : [str] zmienna tekstowa, definiująca jaką transformację program przeprowadzi na danych 
+         z pliku wejsciowego. Do wyboru: 'XYZ2BLH' ; 'BLH2XYZ' ; 'PL2000' ; 'PL1992' ; 'XYZ2NEUP'
+
+         Returns
+         -------
+         None.
+
+         """
         dane = np.genfromtxt(plik_wsadowy,delimiter = " ")
         if transformacja == 'XYZ2BLH':
             wyniki = self.hirvonen(dane[:,0], dane[:,1], dane[:,2])
@@ -324,7 +329,7 @@ class Transformation:
         elif transformacja == 'XYZ2NEUP':
             wyniki = self.xyz2neup(dane[1:,0], dane[1:,1], dane[1:,2], dane[0,0], dane[0,1], dane[0,2])
             np.savetxt(f"plik_wynikowy_{transformacja}._{args.el}.txt", wyniki, delimiter=' ', fmt='%0.3f %0.3f %0.3f')
-
+    
 if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('-p', type=str, help='Przyjmuje sciezke do pliku z danymi wejsciowymi, jesli plik jest w tym samym folderze co skrypt to wystarczy nazwa pliku z rozszerzeniem')
@@ -364,9 +369,7 @@ if __name__ == '__main__':
     except ValueError:
         print('Zly format danych w pliku.')
     finally:
-        print('Koniec programu')
-       
-      
+        print('Koniec programu')      
 
    
        
