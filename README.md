@@ -67,7 +67,7 @@ Podaj nazwe elipsoidy:
 ## Opis przykładowych danych do transformacji
 Wszystkie dane w plikach wejściowych i wyjściowych są oddzielone od siebie spacją.
 #### BL --> PL2000/PL1992
-- plik_dane_2000_92.txt
+- plik_dane_2000_92 (1).txt
 
 >52.2397 21.0222\
 >50.0747 19.9550\
