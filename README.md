@@ -37,7 +37,7 @@ Przykładowe wywołanie:
 ```sh
 skrypt.py -p plik_dane_XYZ2BLH.txt -el grs80 -t xyz2blh
 ```
-Następnie wyświetli się poniższy komunikat o utworzeniu pliku z wynikami transformacji w folderze, w którym znajduje się skrypt.py.
+Następnie wyświetli się poniższy komunikat o utworzeniu pliku z wynikami transformacji w folderze, w którym znajduje się program.py.
 ```sh
 Plik wynikowy zostal utworzony.
 Jezeli chcesz wykonac kolejna transformacje wpisz TAK jesli chcesz zakonczyc ENTER:
