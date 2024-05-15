@@ -170,15 +170,15 @@ Plik wynikowy zostal utworzony.
 Jezeli chcesz wykonac kolejna transformacje wpisz TAK jesli chcesz zakonczyc ENTER: nie
 Koniec programu
 ```
--ww. zapis zadziała
+ww. zapis zadziała
 
 ```sh
 Podaj nazwe elipsoidy: grs80
 Wklej sciezke do pliku txt z danymi: "C:\Users\operator\Desktop\INFORMATYKA 4 SEM\projekt_informatyka\plik_dane_2000_92.txt"
 Jaka transformacje wykonac?: pl2000
-Plik wynikowy zostal utworzony.
+Podany plik nie istnieje.
 Jezeli chcesz wykonac kolejna transformacje wpisz TAK jesli chcesz zakonczyc ENTER: nie
 Koniec programu
 ```
--ww. zapis nie zadziała 
+ww. zapis nie zadziała, jak zostało opisane, wyskakuje komunikat, że podany plik nie istnieje 
 - Elipsoida Krasowskiego jest dostępna, jednak transformacja  współrzędnych geodezyjnych do układu współrzędnych PL2000 i PL1992 nie zwraca pożądanego prawidłowego wyniku
