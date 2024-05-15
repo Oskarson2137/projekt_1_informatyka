@@ -161,5 +161,23 @@ W wierszach znajdują się kolejno współrzędne X[m], Y[m], Z[m] w układzie t
 
 ## Błędy
 - Program nie wykona transformacji dla plików z danymi w których znajduje się tylko jeden wiersz. Wyświetli błąd, nawet jeśli dane wprowadzone są poprawnie.
-- W przypadku kiedy użytkownik nie poda ścieżki do pliku przy użyciu flagi -t i poda ją w formie *"ścieżka_do_pliku.txt"* zamiast *ścieżka_do_pliku.txt* to wyskoczy komunikat o tym, że podany plik nie istnieje.
+- W przypadku kiedy użytkownik nie poda ścieżki do pliku przy użyciu flagi -p i poda ją w formie *"ścieżka_do_pliku.txt"* zamiast *ścieżka_do_pliku.txt* to wyskoczy komunikat o tym, że podany plik nie istnieje.
+  ```sh
+Podaj nazwe elipsoidy: grs80
+Wklej sciezke do pliku txt z danymi: C:\Users\operator\Desktop\INFORMATYKA 4 SEM\projekt_informatyka\plik_dane_2000_92.txt
+Jaka transformacje wykonac?: pl2000
+Plik wynikowy zostal utworzony.
+Jezeli chcesz wykonac kolejna transformacje wpisz TAK jesli chcesz zakonczyc ENTER: 
+Koniec programu
+```
+-ww. zapis zadziała
+ ```sh
+Podaj nazwe elipsoidy: grs80
+Wklej sciezke do pliku txt z danymi: "C:\Users\operator\Desktop\INFORMATYKA 4 SEM\projekt_informatyka\plik_dane_2000_92.txt"
+Jaka transformacje wykonac?: pl2000
+Plik wynikowy zostal utworzony.
+Jezeli chcesz wykonac kolejna transformacje wpisz TAK jesli chcesz zakonczyc ENTER: 
+Koniec programu
+```
+-ww. zapis nie zadziała 
 - Elipsoida Krasowskiego jest dostępna, jednak transformacja  współrzędnych geodezyjnych do układu współrzędnych PL2000 i PL1992 nie zwraca pożądanego prawidłowego wyniku
