@@ -171,6 +171,7 @@ Jezeli chcesz wykonac kolejna transformacje wpisz TAK jesli chcesz zakonczyc ENT
 Koniec programu
 ```
 -ww. zapis zadziała
+
  ```sh
 Podaj nazwe elipsoidy: grs80
 Wklej sciezke do pliku txt z danymi: "C:\Users\operator\Desktop\INFORMATYKA 4 SEM\projekt_informatyka\plik_dane_2000_92.txt"
