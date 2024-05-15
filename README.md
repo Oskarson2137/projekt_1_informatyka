@@ -17,6 +17,7 @@
 - python 3.11.1 lub python 3.12.3
 - biblioteka numpy
 - biblioteka argparse
+- w celu prawidłowego działania programu należy powiązać w windowsie pliki o rozszerzeniu "py." z launcherem pythona
 
 Program został napisany dla systemu operacyjnego Windows 10 i Windows 11
 ## Opis użycia programu
@@ -35,7 +36,7 @@ Przyjmuje nazwę elipsoidy. Dostępne: WGS84, GRS80 lub KRASOWSKI. Wielkość wp
 Przyjmuje nazwę wybranej transformacji. Dostępne: XYZ2BLH, BLH2XYZ, PL2000, PL1992, XYZ2NEUP. Wielkość wpisywanych liter nie ma znaczenia.
 Przykładowe wywołanie:
 ```sh
-skrypt.py -p plik_dane_XYZ2BLH.txt -el grs80 -t xyz2blh
+program.py -p plik_dane_XYZ2BLH.txt -el grs80 -t xyz2blh
 ```
 Następnie wyświetli się poniższy komunikat o utworzeniu pliku z wynikami transformacji w folderze, w którym znajduje się program.py.
 ```sh
