@@ -167,7 +167,7 @@ Podaj nazwe elipsoidy: grs80
 Wklej sciezke do pliku txt z danymi: C:\Users\operator\Desktop\INFORMATYKA 4 SEM\projekt_informatyka\plik_dane_2000_92.txt
 Jaka transformacje wykonac?: pl2000
 Plik wynikowy zostal utworzony.
-Jezeli chcesz wykonac kolejna transformacje wpisz TAK jesli chcesz zakonczyc ENTER: 
+Jezeli chcesz wykonac kolejna transformacje wpisz TAK jesli chcesz zakonczyc ENTER: nie
 Koniec programu
 ```
 -ww. zapis zadziała
@@ -177,7 +177,7 @@ Podaj nazwe elipsoidy: grs80
 Wklej sciezke do pliku txt z danymi: "C:\Users\operator\Desktop\INFORMATYKA 4 SEM\projekt_informatyka\plik_dane_2000_92.txt"
 Jaka transformacje wykonac?: pl2000
 Plik wynikowy zostal utworzony.
-Jezeli chcesz wykonac kolejna transformacje wpisz TAK jesli chcesz zakonczyc ENTER: 
+Jezeli chcesz wykonac kolejna transformacje wpisz TAK jesli chcesz zakonczyc ENTER: nie
 Koniec programu
 ```
 -ww. zapis nie zadziała 
