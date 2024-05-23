@@ -17,7 +17,7 @@
 - python 3.11.1 lub python 3.12.3
 - biblioteka numpy
 - biblioteka argparse
-- w celu prawidłowego działania programu należy powiązać w windowsie pliki o rozszerzeniu "py." z launcherem pythona
+- w celu prawidłowego działania programu należy powiązać w windowsie pliki o rozszerzeniu ".py" z launcherem pythona
 
 Program został napisany dla systemu operacyjnego Windows 10 i Windows 11
 ## Opis użycia programu
